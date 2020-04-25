@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import remark from 'remark'
 import remarkHtml from 'remark-html'
+import { stringify } from 'querystring'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -21,10 +22,10 @@ export function getSortedPostsData() {
     const matterResult = matter(fileContents)
 
     // Combine the data with the id
-    return {
+    return ({
       id,
       ...matterResult.data
-    }
+    } as { id: string, date?: Date })
   })
   // Sort posts by date
   return allPostsData.sort((a, b) => {
