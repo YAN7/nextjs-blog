@@ -1,13 +1,15 @@
 import Head from 'next/head';
 import Layout from '../../components/layout';
 import Date from '../../components/date';
+import Markdown from '../../components/markdown';
 import { getAllPostIds, getPostDataById } from '../../lib/post';
 import utilStyle from '../../styles/utils.module.css'
 
 export default function Post({ postData }) {
 	const { title, id, date, contentHtml } = postData;
+	// console.log('contentHtml', contentHtml);
 	return (
-		<Layout>
+		<Layout home={false}>
 			<Head>
 				<title>{title}</title>
 			</Head>
@@ -16,7 +18,7 @@ export default function Post({ postData }) {
 				<div className={utilStyle.lightText}>
 					<Date dateString={date} />
 				</div>
-				<div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+				<Markdown source={contentHtml} />
 			</article>
 		</Layout>
 	)
