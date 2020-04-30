@@ -28,9 +28,9 @@ const renderers = {
 		}
 		return <Typography {...props}gutterBottom variant={variant} paragraph={paragraph} />
 	},
-	listItem: ({ tight, ordered, ...props }) => (
+	listItem: ({ tight, ordered, children, ...props }) => (
 		<ListItem>
-			<Typography component="span" />
+			<Typography component="span">{children}</Typography>
 		</ListItem>
 	),
 	paragraph: props => <Typography style={{ lineHeight: 2 }} {...props} paragraph />,
