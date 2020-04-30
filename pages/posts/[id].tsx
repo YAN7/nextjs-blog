@@ -6,17 +6,16 @@ import { getAllPostIds, getPostDataById } from '../../lib/post';
 import utilStyle from '../../styles/utils.module.css'
 
 export default function Post({ postData }) {
-	const { title, id, date, contentHtml } = postData;
-	// console.log('contentHtml', contentHtml);
+	const { title, id, date, contentHtml, theme } = postData;
 	return (
 		<Layout home={false}>
 			<Head>
 				<title>{title}</title>
 			</Head>
 			<article>
-				<h1 className={utilStyle.headingXl}>{title}</h1>
+				<h1 className={`${utilStyle.headingXl} textAlian`}>{title}</h1>
 				<div className={utilStyle.lightText}>
-					<Date dateString={date} />
+					<Date className="textAlian" dateString={date} />
 				</div>
 				<Markdown source={contentHtml} />
 			</article>

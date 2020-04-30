@@ -2,6 +2,8 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Typography from '@material-ui/core/Typography';
 import { ListItem, InlineCode, Link } from './markdownrenderers';
+import Quote from './quote';
+import CodeReader from './codereader';
 
 const renderers = {
 	heading: ({ level, ...props }) => {
@@ -33,8 +35,9 @@ const renderers = {
 	),
 	paragraph: props => <Typography style={{ lineHeight: 2 }} {...props} paragraph />,
 	inlineCode: InlineCode,
-  // blockquote: Quote,
-  link: Link,
+  blockquote: Quote,
+	link: Link,
+	code: CodeReader,
 };
 
 export default function Markdown(props) {
