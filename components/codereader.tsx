@@ -6,12 +6,13 @@ import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
 import lightStyle from 'react-syntax-highlighter/dist/cjs/styles/prism/solarizedlight';
 import darkStyle from 'react-syntax-highlighter/dist/esm/styles/prism/xonokai';
 import { makeStyles } from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import Collapse from '@material-ui/core/Collapse';
 
 import Button from '@material-ui/core/Button';
 import Code from '@material-ui/icons/Code';
 import Close from '@material-ui/icons/Close';
 import { ThemeContext } from '../themes/themewrapper';
-import useLocalStorage from '../hooks/uselocalstorage';
 
 const CodeReader = (props) => {
 	const [open, setOpen] = useState(true);
@@ -21,10 +22,7 @@ const CodeReader = (props) => {
 	SyntaxHighlighter.registerLanguage('css', css);
 	SyntaxHighlighter.registerLanguage('html', html);
 
-	// const [darkMode] = useLocalStorage('darkMode', false);
 	const darkMode = window.localStorage.getItem('darkMode');
-
-	console.log('darkMode', darkMode);
 
 	return (
 		<ThemeContext.Consumer>
@@ -32,15 +30,17 @@ const CodeReader = (props) => {
 				<>
 					<div>
 						<div className="src">
-							<Button onClick={() => setOpen(!open)} color="secondary" size="small">
-								{ open ? (
-									<Close onClick={() => setOpen(!open)} fontSize="small"/>
-								) : (
-									<Code onClick={() => setOpen(!open)} fontSize="small"/>
-								)}
-							</Button>
+							<Tooltip title={open ? 'close code' : 'open code'} placement="top">
+								<Button onClick={() => setOpen(!open)} color="secondary" size="small">
+									{ open ? (
+										<Close onClick={() => setOpen(!open)} fontSize="small"/>
+									) : (
+										<Code onClick={() => setOpen(!open)} fontSize="small"/>
+									)}
+								</Button>
+							</Tooltip>
 						</div>
-						<section className={`source ${open && 'open'}`}>
+						<Collapse in={open} className="source">
 							<SyntaxHighlighter
 								language={language}
 								style={darkMode === 'true' ? darkStyle : lightStyle}
@@ -48,7 +48,7 @@ const CodeReader = (props) => {
 							>
 								{value}
 							</SyntaxHighlighter>
-						</section>
+						</Collapse>
 					</div>
 					<style jsx>{`
 						.src {
@@ -77,13 +77,6 @@ const CodeReader = (props) => {
 						};
 						.iconSmall: {
 							font-size: 20px;
-						};
-						.source {
-							overflow: hidden;
-							height: 0px;
-							position: relative;
-							transition: all .5s;
-							margin: 0 -10px;
 						};
 						.source :global(pre) {
 							margin: 0 0 1em 30px !important;

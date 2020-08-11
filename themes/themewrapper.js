@@ -12,7 +12,7 @@ export const ThemeContext = createContext({
 
 export const AppContext = createContext();
 
-const test = applicationTheme('yellowCyanTheme', 'light', 'rtl');
+const test = applicationTheme('blueCyanTheme', 'light', 'rtl');
 
 const theme = createMuiTheme(test)
 
