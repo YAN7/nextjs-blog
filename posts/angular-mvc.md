@@ -109,7 +109,7 @@ export class AppModule { }
 在应用中model包含了业务端。对于简单的CRUD(创建，读取，更新以及删除)应用，model通常是一个简单的数据模型。对于更复杂的应用，model自然也变得更复杂。在我们的这个应用中，model是一个关于文字笔记的数组。每一个笔记都包含了**id**,**title**和**text**。在Angular中，model就是所谓的`service`。下面的ng命令可以创建一个新的service。
 
 ```js
-ng generate service Notes
+ng generate service Notes 
 ```
 
 这会创建两个文件:`src/app/notes.service.ts`和`src/app/notes.service.spec.ts`。在这个教程中你可以像忽略其他以`spec.ts`结尾的文件一样忽略第二个文件。这些文件是用来单元测试的。当你想发布一个应用到生产环境中，你可以用这些文件来编写测试。用下面的代码替换`src/app/notes.service.ts`中的内容：

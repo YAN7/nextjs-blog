@@ -1,22 +1,25 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { getSortedPostsData } from '../lib/post'
 import Layout, { siteTitle } from '../components/layout'
 import Date from '../components/date'
 import utilStyles from '../styles/utils.module.css';
 
-export default function Home({ allPostsData }) {
+const styles = theme => ({
+  lala: {
+    color: 'red',
+  }
+})
+
+function Home({ allPostsData, theme, classes, changeMode }) {
   return (
-    <Layout home>
+    <Layout style={{ maxWidth: '36rem' }} home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headMd}>
-        <p>hi, I'm YAN7, a front end engineer!</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+        <p className="about">hi, I'm YAN7, a pround front end engineer!</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
@@ -34,6 +37,11 @@ export default function Home({ allPostsData }) {
           ))}
         </ul>
       </section>
+      <style>{`
+        .about {
+          text-align: center;
+        }
+      `}</style>
     </Layout>
   )
 }
@@ -46,3 +54,5 @@ export async function getStaticProps() {
     }
   }
 }
+
+export default withStyles(styles)(Home);

@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 1234",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.51",
     "date-fns": "^2.12.0",
     "gray-matter": "^4.0.2",
     "next": "9.3.5",
@@ -18,11 +19,15 @@
     "react-markdown": "^4.3.1",
     "react-syntax-highlighter": "^12.2.1",
     "remark": "^12.0.0",
-    "remark-html": "^11.0.1"
+    "remark-html": "^11.0.1",
+    "sass": "^1.26.5",
+    "styled-components": "^5.1.0",
+    "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
     "@types/node": "^13.13.2",
     "@types/react": "^16.9.34",
+    "next-transpile-modules": "^3.3.0",
     "typescript": "^3.8.3"
   }
 }
