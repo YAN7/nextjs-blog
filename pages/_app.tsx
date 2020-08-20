@@ -1,30 +1,32 @@
 import { useState, useEffect, createContext } from 'react';
 import { AppProps } from 'next/app'
 import useDarkMode from 'use-dark-mode';
-import ThemeWrapper, { ThemeContext, AppContext } from '../themes/themewrapper';
-import  darkTheme from '../themes/darktheme';
-import lightTheme from '../themes/lighttheme';
+import { observer } from 'mobx-react'
+import ThemeWrapper, { ThemeContext, AppContext } from '../themes/themeWrapper';
+import  darkTheme from '../themes/darkTheme';
+import lightTheme from '../themes/lightTheme';
+import AppStore from '../store/app'
 import '../styles/global.scss';
 import { StylesProvider } from '@material-ui/styles';
 
 const Toggle = ({ checked, onChange }) => (
   <span className="toggle-control">
     <input
-      className="dmcheck"
+      className="dmCheck"
       type="checkbox"
       checked={checked}
       onChange={onChange}
-      id="dmcheck"
+      id="dmCheck"
     />
-    <label htmlFor="dmcheck" />
+    <label htmlFor="dmCheck" />
   </span>
 );
 
 const App = ({ Component, pageProps }: AppProps) => {
 	const [isMounted, setIsMounted] = useState(false);
-	const darkMode = useDarkMode(true)
+	const darkMode = useDarkMode(false)
 	const theme = darkMode.value ? darkTheme : lightTheme;
-
+	const themeMode = darkMode.value ? 'dark' : 'light'
 	useEffect(() => {
 		[].slice.call(document.querySelectorAll('table')).forEach(function(el){
 			var wrapper = document.createElement('div');
@@ -33,6 +35,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 			el.parentNode.removeChild(el);
 			wrapper.appendChild(el);
 		})
+		AppStore.toggleTheme(themeMode)
 		setIsMounted(true)
 	}, [])
 
@@ -55,6 +58,8 @@ const App = ({ Component, pageProps }: AppProps) => {
 			}
 		}
 		changeMode(!darkMode.value ? 'dark' : 'light');
+		AppStore.toggleTheme()
+		console.log(123, AppStore.theme)
 	}
 	
 	return (
@@ -86,4 +91,4 @@ const App = ({ Component, pageProps }: AppProps) => {
 	)
 }
 
-export default App;
+export default observer(App);

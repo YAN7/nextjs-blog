@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { ThemeContext } from '../themes/themewrapper';
+import { ThemeContext } from '../themes/themeWrapper';
 
 const  InlineCode = ({ classes, children }) => (
 	<code >{children}</code>

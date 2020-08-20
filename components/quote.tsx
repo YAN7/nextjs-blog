@@ -1,6 +1,6 @@
 import blueGrey from '@material-ui/core/colors/blueGrey';
 import Typography from '@material-ui/core/Typography';
-import { ThemeContext } from '../themes/themewrapper';
+import { ThemeContext } from '../themes/themeWrapper';
 
 const Quote = ({ children, footnote }) => (
 	<ThemeContext.Consumer>

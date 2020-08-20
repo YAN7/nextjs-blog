@@ -195,7 +195,7 @@ const lightPalette = {
     palette: {
       primary: {
         light: '#FFF3E0',
-        main: '#F9A825',
+        main: '#EC407A',
         dark: '#F57F17',
         contrastText: '#fff',
       },
