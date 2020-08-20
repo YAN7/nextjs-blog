@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import utilStyles from '../styles/utils.module.css';
 import styles from './layout.module.css';
-import { ThemeContext } from '../themes/themewrapper';
+import { ThemeContext } from '../themes/themeWrapper';
 import { ReactNode } from 'react';
 
 const name = "YAN7";

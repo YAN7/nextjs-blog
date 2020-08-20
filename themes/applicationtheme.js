@@ -1,4 +1,4 @@
-import themePalette from './themepalettemode'
+import themePalette from './themePaletteMode'
 
 const applicationTheme = (color, mode, direction) => ({
   direction,

@@ -1,9 +1,8 @@
-import { createContext, useState } from 'react';
-import { StylesProvider, jssPreset } from '@material-ui/styles';
+import { createContext, useState, useEffect } from 'react';
 import { withStyles, createMuiTheme, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
-import lightTheme from './lighttheme';
-import darkTheme from './darktheme';
-import applicationTheme from './applicationtheme'
+import lightTheme from './lightTheme';
+import darkTheme from './darkTheme';
+import applicationTheme from './applicationTheme'
 
 
 export const ThemeContext = createContext({
@@ -25,6 +24,11 @@ const ThemeWrapper = (props) => {
 		await setMode(mode);
 		await setTheme(createMuiTheme(applicationTheme('yellowCyanTheme', mode, 'rtl')));
 	};
+
+	useEffect(() => {
+		const themeMode = localStorage.getItem('darkMode') ? 'dark' : 'light'
+		changeMode(themeMode)
+	}, [])
 
 	return (
 		<ThemeProvider theme={theme}>

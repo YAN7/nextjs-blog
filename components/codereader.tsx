@@ -12,7 +12,7 @@ import Collapse from '@material-ui/core/Collapse';
 import Button from '@material-ui/core/Button';
 import Code from '@material-ui/icons/Code';
 import Close from '@material-ui/icons/Close';
-import { ThemeContext } from '../themes/themewrapper';
+import { ThemeContext } from '../themes/themeWrapper';
 
 const CodeReader = (props) => {
 	const [open, setOpen] = useState(true);
