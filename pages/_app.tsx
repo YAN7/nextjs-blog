@@ -59,7 +59,6 @@ const App = ({ Component, pageProps }: AppProps) => {
 		}
 		changeMode(!darkMode.value ? 'dark' : 'light');
 		AppStore.toggleTheme()
-		console.log(123, AppStore.theme)
 	}
 	
 	return (
