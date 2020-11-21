@@ -1,6 +1,6 @@
 ---
 title: '[译文] Angular MVC模式入门'
-date: '2020-04-27'
+date: '2020-04-28'
 ---
 
 [原文在此，原文在此，原文在此，重要的事说三遍](https://alligator.io/angular/angular-mvc-primer/)
