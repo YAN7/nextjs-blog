@@ -3263,8 +3263,8 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
 lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.19:
-  version "4.17.19"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
 
 longest-streak@^2.0.1:
   version "2.0.4"
@@ -3488,6 +3488,24 @@ mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@~0.5.1:
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.5.tgz#d91cefd62d1436ca0f41620e251288d420099def"
   dependencies:
     minimist "^1.2.5"
+
+mobx-react-lite@^2.2.0:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-2.2.2.tgz#87c217dc72b4e47b22493daf155daf3759f868a6"
+
+mobx-react@^6.2.5:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-6.3.1.tgz#204f9756e42e19d91cb6598837063b7e7de87c52"
+  dependencies:
+    mobx-react-lite "^2.2.0"
+
+mobx-state-tree@^3.17.2:
+  version "3.17.3"
+  resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-3.17.3.tgz#e9c40dca17e7b72ad01270852a516145bf6b6c72"
+
+mobx@^5.15.6:
+  version "5.15.7"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.15.7.tgz#b9a5f2b6251f5d96980d13c78e9b5d8d4ce22665"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
